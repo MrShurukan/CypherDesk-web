@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/front-page/main.css">
+    <title>CypherDesk - Авторизация</title>
+</head>
+
+<body>
+    <!-- Setting margin to auto so on small screens it won't hide -->
+    <div class="container text-center shadow-lg desktopPadding rounded" style="margin-top: auto; margin-bottom: auto; background-color: #404549">
+        <!-- This will hide on mobile -->
+        <h1 class="display-3 show show1 d-none d-sm-block" style="color: #eeeeee">Здравствуйте</h1>
+        <!-- This will appear on mobile -->
+        <h1 class="display-5 show show1 mt-3 d-block d-sm-none bold" style="color: #eeeeee">Здравствуйте</h1>
+
+        <!-- This will hide on mobile -->
+        <h2 class="display-6 show show2 mb-5 d-none d-sm-block" style="color: #a9a9a9">Спасибо за выбор системы CypherDesk</h2>
+        <!-- This will appear on mobile -->
+        <h2 class="lead show show2 mb-5 d-block d-sm-none" style="color: #a9a9a9">Спасибо за выбор системы CypherDesk</h2>
+
+        <center>
+
+            <div class="card text-center shadow p-3 mb-5 bg-light rounded" id="authCard">
+                <div class="card-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginInput" class="display-5 mb-3">Авторизация:</label>
+                            <input type="text" class="form-control mb-2" id="loginInput" placeholder="Введите почту или логин" required>
+                            <input type="password" class="form-control" id="passwordInput" placeholder="Введите пароль" aria-describedby="passwordHelp" required>
+                            <small id="passwordHelp" class="form-text text-muted">Пароль вам должен выдать администратор</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Вход</button> 
+                        <a href="" style="padding-left: 0.5rem; font-size: 0.8rem" data-toggle="modal" data-target="#forgotPasswordModal">Забыли пароль?</a> 
+                    </form>
+                </div>
+                <!-- /.card-body -->     
+            </div>
+            <!-- /.card text-center -->
+
+            <!-- This will be filled using JS -->
+            <div id="alertWrapperMain"></div>
+
+        </center>
+    </div>
+    <!-- /.container -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="forgotPasswordForm">
+                
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="forgotPasswordModalLabel">Забыли пароль?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <label for="FPCredInput" class="blockquote">Логин / Почта</label>
+                        <input type="text" class="form-control" id="FPCredInput"
+                            placeholder="Ваш отличный логин" required>
+                        <small id="emailHelp" class="form-text text-muted">На Вашу почту будет отправлено письмо</small>
+
+
+                        <!-- This will be filled using JS -->
+                        <div id="alertWrapperFP" class="mt-3"></div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="FPClose" data-dismiss="modal">Закрыть</button>
+                        <button type="submit" class="btn btn-primary" id="FPSubmit">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript for Bootstrap -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
+
+    <!-- My JS -->
+    <script src="/static/front-page/main.js"></script>
+    <script src="/static/publicVars.js"></script>
+    <script src="/static/sendPOST.js"></script>
+
+    <!-- ISYN Software 2018 -->
+</body>
+
+</html>

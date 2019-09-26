@@ -1,0 +1,43 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: right;
+    
+    background-image: url("/static/fillAccount/robotBackground.jpg");
+    background-size: cover;
+}
+
+.display-5 {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+#authCard {
+    background-color: #e3e3e3;
+}
+
+/* Desktop */
+@media (min-width: 770px) {
+    #authCard {
+        width: 450px
+    }
+    .desktopPadding {
+        padding: 3rem!important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 769px) {
+    #authCard {
+        padding: 0!important;
+    }
+}
+
+.bold {
+    font-weight: 350!important;
+}

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>CypherDesk - Домашняя страница</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/static/homePage/materialize/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="/static/homePage/materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+    <link rel="stylesheet" href="/static/homePage/main.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloaderDiv" class="grey darken-1" style="position: fixed; width: 100%; height: 100%; z-index: 10000">
+            <div class="row">
+                <div class="col s12 m6 offset-m3">
+                    <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span id="preloaderHeader" class="card-title flow-text center">Загрузка...</span>
+                        <p id="preloaderStatus" class="center flow-text">Устанавливаем безопасное соединение...</p>
+
+                        <div class="progress">
+                            <div class="indeterminate"></div>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        
+        <!-- <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                <div class="circle"></div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Desktop -->
+    <div class="fixed-action-btn click-to-toggle direction-top hide-on-small-only" style="bottom: 45px; right: 24px">
+        <a class="btn-floating btn-large red">
+            <i class="large material-icons">menu</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating red tooltipped modal-trigger" href="#uploadDocumentModal" data-position="left" data-tooltip="Ваши Документы"><i class="material-icons">folder_open</i></a></li>
+            <li><a class="btn-floating green tooltipped" href="/account/chat" data-position="left" data-tooltip="Ваши Чаты"><i class="material-icons">chat</i></a></li>
+            <li><a class="btn-floating blue darken-1 tooltipped" data-position="left" data-tooltip="Техническая поддержка"><i class="material-icons">contact_phone</i></a></li>
+        </ul>
+    </div>
+
+    <!-- Mobile -->
+    <div class="fixed-action-btn fixed-action-btn-mobile toolbar direction-top hide-on-med-and-up" style="right: 10px">
+        <a class="btn-floating red">
+            <i class="large material-icons">menu</i>
+        </a>
+        <ul>
+            <li class="waves-effect waves-light"><a class="modal-trigger" href="#uploadDocumentModal"><i class="material-icons">folder_open</i></a></li>
+            <li class="waves-effect waves-light"><a href="#!"><i class="material-icons">contact_phone</i></a></li>
+            <li class="waves-effect waves-light"><a href="#!"><i class="material-icons">chat</i></a></li>
+            <li class="waves-effect waves-light"><a href="#!" onclick="exitModal();"><i class="material-icons">exit_to_app</i></a></li>
+        </ul>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="uploadDocumentModal" class="modal">
+        <div class="modal-content">
+            <h4>Выберите документ для загрузки</h4>
+            <p>Вы можете получить доступ ко всем документам <a href="#!">здесь</a></p>
+
+            <form id="documentUploadForm">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Ваш файл</span>
+                        <input name="fileInput" required type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+                <div class="input-field col s6">
+                    <input name="keywords" id="last_name" type="text" class="validate">
+                    <label for="last_name">Ключевые слова (через пробел)</label>
+                </div>
+                <button class="btn waves-effect waves-light right" type="submit" name="action">Загрузить
+                    <i class="material-icons right">cloud_upload</i>
+                </button>
+            </form>
+        </div>
+        <div class="modal-footer" style="margin-top: 2rem">
+            <a href="#!" class="modal-close waves-effect waves-red btn-flat">Отмена</a>
+        </div>
+    </div>
+
+
+    <!-- div#intro.block -->
+    <div id="intro" class="block" style="background-color: #faebd74d; padding-bottom: 5rem">
+        <!-- Nav for Desktop -->
+        <nav class="light-blue lighten-1 pushpin-demo-nav z-top-2 hide-on-med-and-down" role="navigation" data-target="intro">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="http://ссылка-на-наш-домашний.site" class="brand-logo">CypherDesk - Ваш Аккаунт
+            </a>
+                <ul class="right hide-on-med-and-down">
+                    {% if isAdmin %}
+                        <li><a href="/">Перейти в Админ-Панель</a></li>
+                    {% endif %}
+                    <li><a href="#!" onclick="exitModal();">Выход из системы</a></li>
+                </ul>
+
+                <!--<ul id="nav-mobile" class="sidenav withLowerButton collection with-header z-top-1">
+                    <li class="collection-header red lighten-1">
+                        <h4>Сервисы</h4>
+                    </li>
+                    <li class="collection-item"><a href="#" class="nav-link">Ваши Документы</a></li>
+                    <li class="collection-item"><a href="#" class="nav-link">Техподдержка</a></li>
+                    <li class="collection-item"><a href="#" class="nav-link">Чат</a></li>
+                    <li><a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light red">Выход
+                            из системы</a></li>
+                </ul>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
+            </div>
+        </nav>
+
+        <!-- Nav for Mobile -->
+        <nav class="light-blue lighten-1 hide-on-med-and-up" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="http://ссылка-на-наш-домашний.site" class="brand-logo">CypherDesk</a></div>
+        </nav>
+
+        <br><br>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container mt-2-desktop">
+                <div class="row center">
+                    <div class="col s12 offset-m4 m4">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <img src="/static/adminPanel/default_profile.jpg">
+                                <!-- <span class="card-title">{{login}}</span> -->
+                                <a class="btn-floating halfway-fab waves-effect waves-light red tooltipped" id="editBtn"
+                                    data-position="right" data-tooltip="Запрос на редактирование">
+                                    <i class="material-icons">edit</i>
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <p style="font-size: 30px">Добро пожаловать!</p>
+                                <p style="font-size: 20px">{{name}} {{partonymic}} ({{login}})</p>
+                                <br>
+                                <p style="font-size: 20px;">Отдел: <b>«{{department}}»</b></p>
+
+                                <script>
+                                    const myUserData = {
+                                        Login: "{{login}}",
+                                        Name: "{{name}}",
+                                        Surname: "{{surname}}",
+                                        Partonymic: "{{partonymic}}",
+                                        Recourse: "{{recourse}}",
+                                        DepartmentName: "{{department}}",
+                                        ID: {{id}}
+                                    };
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br>
+
+            </div>
+        </div>
+
+
+        <div class="container">
+            <h3 class="header center">Информация об аккаунте</h3>
+            <hr>
+            <div class="section">
+
+                <!--   Icon Section   -->
+                <div class="row">
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center light-blue-text"><i class="material-icons">event_available</i></h2>
+                            <h5 class="center">Ваши тикеты</h5>
+
+                            <p class="center">На данный момент у Вас <b id="ticketAmountB">...</b> незакрытых тикетов</p>
+                            <p class="center"><a href="#ticketsBlock" class="waves-effect waves-teal btn-flat smoothScroll">Перейти к тикетам</a></p>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center light-blue-text"><i class="material-icons">people</i></h2>
+                            <h5 class="center">Отдел «{{department}}»</h5>
+
+                            <p class="center">Менеджер тикетов вашего отдела: ИМЯ ФАМИЛИЯ</p>
+                            <p class="center"><a class="waves-effect waves-teal btn-flat">Написать менеджеру</a></p>
+
+                        </div>
+                    </div>
+
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center light-blue-text"><i class="material-icons">chat</i></h2>
+                            <h5 class="center">Чат</h5>
+
+                            <p class="center">Вы имеете <b>8</b> непрочитанных сообщений во всех чатах организации</p>
+                            <p class="center"><a href="#chatBlock" class="waves-effect waves-teal btn-flat smoothScroll">Перейти в чат</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
+        </div>
+
+    </div>
+    <!-- /div#intro.block -->
+
+    <hr style="opacity: 0.2;">
+    <div id="ticketsBlock" class="block" style="background-color: #ffffff4d; padding-top: 2rem; padding-bottom: 5rem">
+
+        <div class="container">
+            <h3 class="center" style="margin-top: 0">Тикеты</h3>
+            <div class="row center">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                        <li class="tab col s4">
+                            <a class="active" href="#sendTicket">
+                                <!-- Desktop -->
+                                <span class="hide-on-small-and-down">Написать тикет</span>
+                                <!-- Mobile -->
+                                <span class="hide-on-med-and-up"><i class="material-icons">add</i></span>
+                            </a>
+                        </li>
+                        <li class="tab col s4">
+                            <a href="#sentTickets">
+                                <span class="badge" id="sentCounter">0</span>
+                                <!-- Desktop -->
+                                <span class="hide-on-small-and-down" id="sentTicketsSpan">Отправленные тикеты</span>
+                                <!-- Mobile -->
+                                <span class="hide-on-med-and-up"><i class="material-icons">send</i></span>
+                            </a>
+                        </li>
+                        <li class="tab col s4" id="receivedTicketsLi">
+                            <a href="#receivedTickets">
+                                <span class="badge" id="receivedCounter">0</span>
+                                <!-- Desktop -->
+                                <span class="hide-on-small-and-down" id="receivedTicketsSpan">Полученные тикеты</span>
+                                <!-- Mobile -->
+                                <span class="hide-on-med-and-up"><i class="material-icons">inbox</i></span>
+                            </a>
+                        </li>
+                        </ul>
+                    </div>
+                    <div id="sendTicket" class="col s12">
+                        <form id="sendTicketForm">
+                            <ul class="collection">
+                                <div class="input-field col m6 s12" style="margin-top: 2rem">
+                                    <!-- <i class="material-icons prefix">confirmation_number</i> -->
+                                    <!-- Пожалуйста, делайте хорошие и полезные заголовки, это экономит нам всем время -->
+                                    <input id="ticketCaptionInput" type="text" class="validate countable" data-length="30">
+                                    <label for="ticketCaptionInput">Заголовок тикета</label>
+                                    <span class="helper-text left" data-error="Текст слишком длинный" data-success="Текст проходит проверку по длине">Пожалуйста, делайте хорошие и полезные заголовки, это экономит нам всем время</span>
+                                </div>
+                                {% if isModerator %}
+                                    <script>
+                                        let departments = {
+                                            {% for dep in departments %}
+                                                {{dep.ID}}: "{{dep.Name}}",
+                                                "{{dep.Name}}": "{{dep.ID}}",
+                                            {% endfor %}
+                                        };
+
+                                        let userNames = {
+                                            {% for user in usersToTransfer %}
+                                                {{user.ID}}: "{{user.Name}} {{user.Surname}}",
+                                            {% endfor %}
+                                            {{id}}: "{{name}} {{surname}}"
+                                        };
+
+                                        let usersWithID = [
+                                            {% for user in usersToTransfer %}
+                                                {{ '{ id: ' }} {{user.ID}}, name: "{{user.Recourse}} {{user.Name}} {{user.Surname}} ({{user.Login}})" {{ '},' }}
+                                            {% endfor %}
+                                        ];
+                                    </script>
+                                    <br>
+                                    <div class="input-field col m6 s12" id="userSelectField">
+                                        <select id="userSelect">
+                                            <option value="" disabled selected>Выберите пользователя</option>
+                                            {% for user in usersToTransfer %}
+                                                <option value="{{user.ID}}">{{user.Recourse}} {{user.Name}} {{user.Surname}} ({{user.Login}})</option>
+                                            {% endfor %}
+                                        </select>
+                                        <label>Адресат</label>
+                                    </div>
+                                {% else %}
+                                    <script>
+                                        let departments = null;
+                                        let userNames = {
+                                            {{id}}: "{{name}} {{surname}}"
+                                        };
+                                    </script>
+                                {% endif %}
+
+                                <div class="input-field col s12">
+                                    <textarea id="ticketDesc" class="materialize-textarea countable validate" data-length="500"></textarea>
+                                    <label for="ticketDesc">Описание проблемы</label>
+                                </div>
+                                <br><br><br><br>
+
+                                <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-bottom: 14px;">Отправить
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </ul>
+                        </form>
+                    </div>
+                    <div id="sentTickets" class="col s12">
+                        <ul class="collection with-header sentTicketsUl collapsible">
+                            <!-- This is filled via JS -->
+                            <li class="collection-header"><h5>Загрузка информации...</h5></li>
+                        </ul>
+                    </div>
+
+                    <div id="receivedTickets" class="col s12">
+                        <ul class="collection with-header incomingTicketsUl collapsible">
+                            <!-- This is filled via JS -->
+                            <li class="collection-header"><h5>Загрузка информации...</h5></li>
+                        </ul>
+                    </div>
+
+                    <!-- Modal Structure -->
+                    <div id="forwardTicketModal" class="modal">
+                        <div class="modal-content">
+                            <h4>Переслать тикет?</h4>
+                            <p>Выберите пользователя для пересылки</p>
+
+                            <form id="forwardTicketForm">
+                                <div id="forwardTicketSelectDiv">
+                                     <!--This is filled via JS -->
+                                </div>
+
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Отправить
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-red btn-flat">Отмена</a>
+                        </div>
+                    </div>
+                    <button style="position: absolute; visibility: hidden; top: 0px; left:0px;" data-target="forwardTicketModal" class="btn modal-trigger" id="forwardTicketModalBtn">Modal</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /div#ticketsBlock.block -->
+
+    <hr style="opacity: 0.2;">
+    <div id="chatBlock" class="block" style="background-color: #fdf9f3; padding-top: 2rem; padding-bottom: 5rem">
+
+        <div class="container">
+            <h3 class="center" style="margin-top: 0">Ваши чаты</h3>
+            <div class="row center">
+                <h1>Coming soon ;)</h1>
+                <a href="/account/chat" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Перейти в полный чат</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- /div#chatBlock.block -->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/static/homePage/materialize/js/materialize.min.js"></script>
+    <script src="/static/homePage/materialize/js/init.js"></script>
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Encryption -->
+    <script type="text/javascript" src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="/static/jsencrypt.min.js"></script>
+    <!-- <script src="/static/AESUtils.js"></script> -->
+
+    <!-- Our JS -->
+    <script src="/static/publicVars.js"></script>
+    <script src="/static/homePage/encryption.js"></script>
+    <script src="/static/homePage/ws.js"></script>
+
+    <!-- <script src="/static/cryptico.min.js"></script> -->
+
+    {% if isModerator %}
+    <script src="/static/homePage/mainM.js"></script>
+    {% else %}
+    <script src="/static/homePage/mainU.js"></script>
+    {% endif %}
+    <script src="/static/sendPOST.js"></script>
+
+    <script>
+            console.log("Тест", $("#documentUploadForm"));
+            $("#documentUploadForm").submit(function(e){
+                e.preventDefault();
+
+                console.log('Creating Form Data');
+                let formData = new FormData($(this)[0]);
+                console.log(formData);
+            
+                $.ajax({
+                    url: '/account/uploadFile',
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    success: function (data) {
+                        console.log('Документ отправлен успешно;', data);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            
+                return false;
+            });
+        </script>
+
+</body>
+
+</html>

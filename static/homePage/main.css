@@ -1,0 +1,295 @@
+html,
+body,
+.block {
+    /* height: 110%; */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.z-top-1 {
+    z-index: 5 !important;
+}
+
+.z-top-2 {
+    z-index: 4 !important;
+}
+
+.z-top-3 {
+    z-index: 3 !important;
+}
+
+.z-top-4 {
+    z-index: 2 !important;
+}
+
+.z-top-5 {
+    z-index: 1 !important;
+}
+
+.z-bottom {
+    z-index: -999 !important;
+}
+
+ul.withLowerButton {
+    /* its children will be flex-items */
+    display: flex;
+    /* move flex-items in column */
+    flex-direction: column;
+}
+
+.transition {
+    transition: all 1s ease-out 0.5s;
+}
+
+/* add maximum available margin-top to last child */
+/* this can be replaced with any selector like nth-child */
+/* and will move flex-items to the bottom if any available vertical space */
+ul.withLowerButton> :last-child {
+    margin-top: auto;
+}
+
+.nav-link {
+    font-size: 20px !important;
+}
+
+.display-5 {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-6 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.window {
+    width: 100%;
+    height: 100%;
+    /* position: absolute; */
+}
+
+#main {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+#leftTicketDesk {
+    margin-top: 10%;
+    position: absolute;
+    z-index: 100;
+    height: 150px;
+}
+
+#ticketDesk {
+    margin-top: 10%;
+    height: 150px;
+    position: relative;
+    display: inline;
+    cursor: pointer;
+}
+
+#leftTicketMobile {
+    margin-top: 5%;
+    position: absolute;
+    z-index: 100;
+    height: 145px;
+}
+
+#ticketMobile {
+    margin-top: 5%;
+    height: 145px;
+    position: relative;
+    display: inline;
+    cursor: pointer;
+}
+
+/* #ticketDesc {
+    width: 100%;
+    height: 200px;
+} */
+
+#ticketMobile:hover,
+#ticketDesk:hover {
+    bottom: 30px
+}
+
+.out {
+    /* left: 100%; */
+    display: none;
+}
+
+.head-link {
+    font-size: 1.2rem;
+}
+
+@keyframes slideIn {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: 0%
+    }
+}
+
+
+@keyframes slideAway {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: -100%;
+    }
+}
+
+.controlBlock {
+    height: 50%;
+    padding-top: 50%;
+}
+
+/* Mobile */
+@media (max-width: 769px) {
+    .mt-5-mobile {
+        margin-top: 3rem !important;
+    }
+
+    .display-3 {
+        font-size: 2rem;
+    }
+
+    .p-5-desktop {
+        padding: auto;
+    }
+
+    .slideIn {
+        animation-duration: 0.3s;
+        animation-name: slideIn;
+    }
+
+    .slideAway {
+        animation-duration: 0.3s;
+        animation-name: slideAway;
+    }
+
+    .mobilePadding {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+/* No-Laptop */
+@media (min-width: 1500px) {
+    .mt-50-desktop {
+        margin-top: calc(50% - 148px);
+    }
+}
+
+/* Desktop (with Laptop) */
+@media (min-width: 770px) {
+
+    .p-5-desktop {
+        padding: 3rem !important;
+    }
+
+    .slideIn {
+        animation-duration: 0.5s;
+        animation-name: slideIn;
+    }
+
+    .slideAway {
+        animation-duration: 0.5s;
+        animation-name: slideAway;
+    }
+
+    .w-25-desktop {
+        width: 25% !important;
+    }
+
+    .w-50-desktop {
+        width: 50% !important;
+    }
+
+    .mobilePadding {
+        padding: auto;
+    }
+
+    .mt-2-desktop {
+        margin-top: 2rem;
+    }
+}
+
+.bg-none {
+    background-color: transparent;
+}
+
+#box-wrapper {
+    position: absolute;
+    left: 430px;
+    top: 12%;
+
+    width: calc(100% - 450px);
+    height: calc(100% - 15%);
+}
+
+.box {
+    background-color: rgb(216, 216, 216);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 2rem;
+
+    width: 100%;
+    height: 45%;
+}
+
+.boxMobile {
+    background-color: rgb(216, 216, 216);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 2rem;
+
+    width: 100%;
+    height: 450px;
+}
+
+#navigationDesk {
+    background-color: rgb(216, 216, 216);
+    position: absolute;
+    border-radius: 10px;
+    padding: 10px;
+    bottom: 6%;
+    left: 10px;
+
+    height: 34.2%;
+    width: 400px;
+}
+
+a {
+    color: black;
+}
+
+.ticket-holder {
+    overflow-y: scroll;
+    height: calc(100% - 70px);
+}
+
+.userDiv {
+    /* margin-top: 0;
+    margin-bottom: 1rem; */
+    padding: 1rem;
+}
+
+.userDiv:hover {
+    background-color: rgba(0, 0, 0, 0.233);
+    cursor: pointer;
+}
+
+/* .selected {
+    background-color: #7be57b !important;
+    cursor: default !important;
+} */

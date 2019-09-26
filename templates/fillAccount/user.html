@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/fillAccount/main.css">
+    <title>CypherDesk - Авторизация</title>
+</head>
+
+<body>
+
+    <!-- Setting margin to auto so on small screens it won't hide -->
+    <div class="container text-center shadow-lg desktopPadding rounded" style="margin-top: auto; margin-bottom: auto; background-color: #404549">
+        <!-- This will hide on mobile -->
+        <h1 class="display-2 show show1 d-none d-sm-block" style="color: #eeeeee">Отлично!</h1>
+        <!-- This will appear on mobile -->
+        <h1 class="display-5 show show1 d-block d-sm-none bold" style="color: #eeeeee">Отлично!</h1>
+
+        <!-- This will hide on mobile -->
+        <h2 class="display-5 show show2 mb-5 d-none d-sm-block" style="color: #a9a9a9">Давайте настроим Ваш аккаунт</h2>
+        <!-- This will appear on mobile -->
+        <h2 class="lead show show2 mb-5 d-block d-sm-none" style="color: #a9a9a9">Давайте настроим Ваш аккаунт</h2>
+
+        <center>
+
+            <div class="card text-center shadow p-3 mb-5 bg-light rounded" id="authCard">
+                <div class="card-body">
+                    <form id="setDataForm">
+                        <div class="form-group">
+                            <label for="loginInput" class="display-5 mb-3">Ваши данные:</label>
+                            <input type="text" class="form-control mb-1" id="nameInput" placeholder="Имя" required>
+                            <input type="text" class="form-control mb-1" id="surnameInput" placeholder="Фамилия" required>
+                            <input type="text" class="form-control mb-2" id="partonymicInput" placeholder="Отчество" required>
+                            
+                            <small id="passwordHelp" class="form-text text-muted">Например Доктор, Сеньор и т.п.</small>
+                            
+                            <input type="text" class="form-control mb-3" id="recourseInput" placeholder="Обращение" required>
+                            <input type="text" class="form-control mb-1" id="loginInput" placeholder="Логин" required>
+                            <input type="password" class="form-control mb-1" id="passwordInput" placeholder="Пароль" required>
+                            <input type="password" class="form-control" id="repasswordInput" placeholder="Повторите пароль" required>
+
+                        </div>
+                        <button type="submit" class="btn btn-primary">Вход</button>
+                    </form>
+                </div>
+                <!-- /.card-body -->     
+            </div>
+            <!-- /.card text-center -->
+
+            <!-- This will be filled using JS -->
+            <div id="alertWrapper"></div>
+
+        </center>
+    </div>
+    <!-- /.container -->
+
+
+
+    <!-- JavaScript for Bootstrap -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
+
+    <!-- My JS -->
+    <script src="/static/fillAccount/user.js"></script>
+    <script src="/static/publicVars.js"></script>
+    <script src="/static/sendPOST.js"></script>
+
+    <!-- ISYN Software 2018 -->
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.p0 {
+    padding: 0!important;
+}
+
+.header {
+    font-size: 3rem;
+}
+
+.collection-item > div {
+    font-size: 1.3rem;
+}
+
+.selectable:hover {
+    background-color: rgb(219, 219, 219);
+    cursor: pointer;
+}
